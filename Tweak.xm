@@ -68,6 +68,9 @@ static void preferencesChanged() {
 		}
 		if (backgroundColor){
 			label.layer.backgroundColor = [customBackgroundColor CGColor];
+			// Hmmm...
+			CAShapeLayer * maskLayer = [CAShapeLayer layer];
+			maskLayer.path = [UIBezierPath bezierPathWithRoundedRect: label.bounds byRoundingCorners: UIRectCornerBottomLeft | UIRectCornerTopRight cornerRadii: (CGSize){10.0, 15.}].CGPath;
 		}
 		if (outlineColor) {
 			label.layer.borderColor = [customOutlineColor CGColor];
